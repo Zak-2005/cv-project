@@ -1,15 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 
-export default class Title extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <div className="fieldTitle">{this.props.title}</div>
-      </div>
-    );
-  }
+const Title = (props) =>{
+  return (
+    <div>
+      <div className="fieldTitle">{props.title}</div>
+    </div>
+  );
 }
+ 
+export default Title;
