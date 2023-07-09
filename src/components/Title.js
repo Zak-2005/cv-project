@@ -8,7 +8,7 @@ export default class Title extends React.Component {
   render() {
     return (
       <div>
-        <div className="subTitle">{this.props.title}</div>
+        <div className="fieldTitle">{this.props.title}</div>
       </div>
     );
   }

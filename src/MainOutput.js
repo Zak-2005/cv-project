@@ -1,6 +1,7 @@
 import React from "react";
-import App from "./App";
+import App from "./MainInput";
 import Title from "./components/Title";
+import OutputField from "./components/OutputField";
 export default class MainOutput extends React.Component {
   constructor(props) {
     super(props);
@@ -8,24 +9,66 @@ export default class MainOutput extends React.Component {
   render() {
     return (
       <div className="output">
-        <Title title="General Info" />
-        <div className="section">
-          <div>{this.props.field.name}</div>
-          <div>{this.props.field.email}</div>
-          <div>{this.props.field.phoneNum}</div>
+        <div className="mainOutputHeader">
+          <OutputField field={this.props.field.name} class={false} />
+          <div className="contactInfo">
+            <OutputField
+              fieldName="Email:"
+              field={this.props.field.email}
+              class={false}
+            />
+            <OutputField
+              fieldName="Phone Number:"
+              field={this.props.field.phoneNum}
+              class={false}
+            />
+          </div>
         </div>
-        <Title title="Education" />
-        <div className="section">
-          <div>{this.props.field.schoolName}</div>
-          <div>{this.props.field.titleStudy}</div>
-          <div>{this.props.field.dateStudy}</div>
+        <div className="mainOutputContent">
+          <Title title="Education" />
+          <div className="section">
+            <OutputField
+              fieldName="School Name:"
+              field={this.props.field.schoolName}
+              class={true}
+            />
+            <OutputField
+              fieldName="Title of Study:"
+              field={this.props.field.titleStudy}
+              class={true}
+            />
+
+            <OutputField
+              fieldName="Date of Study:"
+              field={this.props.field.dateStudy}
+              class={true}
+            />
+          </div>
         </div>
-        <Title title="Experience" />
-        <div className="section">
-          <div>{this.props.field.companyName}</div>
-          <div>{this.props.field.position}</div>
-          <div>{this.props.field.mainTasks}</div>
-          <div>{this.props.field.periodWorked}</div>
+        <div className="mainOutputContent">
+          <Title title="Experience" />
+          <div className="section">
+            <OutputField
+              fieldName="Company Name:"
+              field={this.props.field.companyName}
+              class={true}
+            />
+            <OutputField
+              fieldName="Position:"
+              field={this.props.field.position}
+              class={true}
+            />
+            <OutputField
+              fieldName="Main Tasks:"
+              field={this.props.field.mainTasks}
+              class={true}
+            />
+            <OutputField
+              fieldName="Period Worked:"
+              field={this.props.field.periodWorked}
+              class={true}
+            />
+          </div>
         </div>
       </div>
     );

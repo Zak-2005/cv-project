@@ -1,13 +1,13 @@
 import React from "react";
-import App from "../App";
+import MainInput from "../MainInput";
 
-export default class MainInput extends React.Component{
+export default class Main extends React.Component{
     constructor(){
         super()
     }
     render(){
         return(
-            <App />
+            <MainInput />
         )
     }
 }

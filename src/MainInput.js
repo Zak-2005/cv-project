@@ -4,7 +4,7 @@ import React from "react";
 import Field from "./components/Field";
 import Title from "./components/Title";
 import MainOutput from "./MainOutput";
-class App extends React.Component {
+class MainInput extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -81,46 +81,54 @@ class App extends React.Component {
     return (
       <div className="mainContent">
         <div className="input">
-          <Title title="General Info" />
-          <Field
-            section={[this.state.name, this.state.email, this.state.phoneNum]}
-            onChange={this.setPersonalInfo}
-            fields={[
-              { field: "Name:" },
-              { field: "Email:" },
-              { field: "Phone Number:" },
-            ]}
-          />
-          <Title title="Education" />
-          <Field
-            section={[
-              this.state.schoolName,
-              this.state.titleStudy,
-              this.state.dateStudy,
-            ]}
-            onChange={this.setEducationInfo}
-            fields={[
-              { field: "School Name:" },
-              { field: "Title of Study:" },
-              { field: "Date of Study:" },
-            ]}
-          />
-          <Title title="Experience" />
-          <Field
-            section={[
-              this.state.companyName,
-              this.state.position,
-              this.state.mainTasks,
-              this.state.periodWorked,
-            ]}
-            onChange={this.setExperienceInfo}
-            fields={[
-              { field: "Company Name:" },
-              { field: "Position:" },
-              { field: "Main Tasks at Job:" },
-              { field: "Period Worked" },
-            ]}
-          />
+          <div>
+            
+            <Title title="General Info" />
+            <Field
+              section={[this.state.name, this.state.email, this.state.phoneNum]}
+              onChange={this.setPersonalInfo}
+              fields={[
+                { field: "Name:" },
+                { field: "Email:" },
+                { field: "Phone Number:" },
+              ]}
+            />
+          </div>
+          <div>
+            
+            <Title title="Education" />
+            <Field
+              section={[
+                this.state.schoolName,
+                this.state.titleStudy,
+                this.state.dateStudy,
+              ]}
+              onChange={this.setEducationInfo}
+              fields={[
+                { field: "School Name:" },
+                { field: "Title of Study:" },
+                { field: "Date of Study:" },
+              ]}
+            />
+          </div>
+          <div>
+            <Title title="Experience" />
+            <Field
+              section={[
+                this.state.companyName,
+                this.state.position,
+                this.state.mainTasks,
+                this.state.periodWorked,
+              ]}
+              onChange={this.setExperienceInfo}
+              fields={[
+                { field: "Company Name:" },
+                { field: "Position:" },
+                { field: "Main Tasks at Job:" },
+                { field: "Period Worked" },
+              ]}
+            />
+          </div>
         </div>
 
        <MainOutput field = {this.state} />
@@ -129,4 +137,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default MainInput;
