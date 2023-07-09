@@ -1,140 +1,111 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React from "react";
+import React, { useState} from "react";
 import Field from "./components/Field";
 import Title from "./components/Title";
 import MainOutput from "./MainOutput";
-class MainInput extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      email: "",
-      phoneNum: "",
-      schoolName: "",
-      titleStudy: "",
-      dateStudy: "",
-      companyName: "",
-      position: "",
-      mainTasks: "",
-      periodWorked: "",
+
+const MainInput = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNum, setPhoneNum] = useState("");
+  const [schoolName, setSchoolName] = useState("");
+  const [titleStudy, setTitleStudy] = useState("");
+  const [dateStudy, setDateStudy] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [position, setPosition] = useState("");
+  const [mainTasks, setMainTasks] = useState("");
+  const [periodWorked, setPeriodWorked] = useState("");
+
+  const setPersonalInfo = (value,subSec) => {
+    if (subSec === "Name:") {
+      setName(value);
+    } else if (subSec === "Email:") {
+      setEmail(value);
+    } else {
+      setPhoneNum(value);
+    }
+  }
+    const setEducationInfo = (value,subSec) => {
+      if (subSec === "School Name:") {
+        setSchoolName(value)
+      } else if (subSec === "Title of Study:") {
+        setTitleStudy(value)
+      } else {
+        setDateStudy(value)
+      }
     };
 
-    this.title = "";
-    this.fields = [];
+    const setExperienceInfo = (value,subSec) => {
+      if (subSec === "Company Name:") {
+        setCompanyName(value);
+      } else if (subSec === "Position:") {
+        setPosition(value);
+      } else if (subSec === "Main Tasks at Job:") {
+        setMainTasks(value);
+      } else {
+        setPeriodWorked(value);
+      }
+    };
+  let title = "";
+  let fields = [];
 
-    this.setPersonalInfo = this.setPersonalInfo.bind(this);
-    this.setEducationInfo = this.setEducationInfo.bind(this);
-    this.setExperienceInfo = this.setExperienceInfo.bind(this);
-  }
-
-  setPersonalInfo(value, subSec) {
-    if (subSec === "Name:") {
-      this.setState((previousState) => ({
-        name: value,
-      }));
-    } else if (subSec === "Email:") {
-      this.setState((previousState) => ({
-        email: value,
-      }));
-    } else {
-      this.setState((previousState) => ({
-        phoneNum: value,
-      }));
-    }
-  }
-  setEducationInfo(value, subSec) {
-    if (subSec === "School Name:") {
-      this.setState((previousState) => ({
-        schoolName: value,
-      }));
-    } else if (subSec === "Title of Study:") {
-      this.setState((previousState) => ({
-        titleStudy: value,
-      }));
-    } else {
-      this.setState((previousState) => ({
-        dateStudy: value,
-      }));
-    }
-  }
-  setExperienceInfo(value, subSec) {
-    if (subSec === "Company Name:") {
-      this.setState((previousState) => ({
-        companyName: value,
-      }));
-    } else if (subSec === "Position:") {
-      this.setState((previousState) => ({
-        position: value,
-      }));
-    } else if (subSec === "Main Tasks at Job:") {
-      this.setState((previousState) => ({
-        mainTasks: value,
-      }));
-    } else {
-      this.setState((previousState) => ({
-        periodWorked: value,
-      }));
-    }
-  }
-  render() {
-    return (
-      <div className="mainContent">
-        <div className="input">
-          <div>
-            
-            <Title title="General Info" />
-            <Field
-              section={[this.state.name, this.state.email, this.state.phoneNum]}
-              onChange={this.setPersonalInfo}
-              fields={[
-                { field: "Name:" },
-                { field: "Email:" },
-                { field: "Phone Number:" },
-              ]}
-            />
-          </div>
-          <div>
-            
-            <Title title="Education" />
-            <Field
-              section={[
-                this.state.schoolName,
-                this.state.titleStudy,
-                this.state.dateStudy,
-              ]}
-              onChange={this.setEducationInfo}
-              fields={[
-                { field: "School Name:" },
-                { field: "Title of Study:" },
-                { field: "Date of Study:" },
-              ]}
-            />
-          </div>
-          <div>
-            <Title title="Experience" />
-            <Field
-              section={[
-                this.state.companyName,
-                this.state.position,
-                this.state.mainTasks,
-                this.state.periodWorked,
-              ]}
-              onChange={this.setExperienceInfo}
-              fields={[
-                { field: "Company Name:" },
-                { field: "Position:" },
-                { field: "Main Tasks at Job:" },
-                { field: "Period Worked" },
-              ]}
-            />
-          </div>
+  return (
+    <div className="mainContent">
+      <div className="input">
+        <div>
+          
+          <Title title="General Info" />
+          <Field
+            section={[name, email, phoneNum]}
+            onChange={setPersonalInfo}
+            fields={[
+              { field: "Name:" },
+              { field: "Email:" },
+              { field: "Phone Number:" },
+            ]}
+          />
         </div>
-
-       <MainOutput field = {this.state} />
+        <div>
+          
+          <Title title="Education" />
+          <Field
+            section={[
+              schoolName,
+              titleStudy,
+              dateStudy,
+            ]}
+            onChange={setEducationInfo}
+            fields={[
+              { field: "School Name:" },
+              { field: "Title of Study:" },
+              { field: "Date of Study:" },
+            ]}
+          />
+        </div>
+        <div>
+          <Title title="Experience" />
+          <Field
+            section={[
+              companyName,
+              position,
+              mainTasks,
+              periodWorked,
+            ]}
+            onChange={setExperienceInfo}
+            fields={[
+              { field: "Company Name:" },
+              { field: "Position:" },
+              { field: "Main Tasks at Job:" },
+              { field: "Period Worked" },
+            ]}
+          />
+        </div>
       </div>
-    );
-  }
-}
+
+     <MainOutput field = {{name,email,phoneNum,schoolName,titleStudy,dateStudy,companyName,position,mainTasks,periodWorked}} />
+    </div>
+  );
+};
 
 export default MainInput;
